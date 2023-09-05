@@ -1,10 +1,10 @@
-type Store = {
+interface Store {
     currentPage: number;
     lastPage: number;
     feeds: NewsFeed[];
 }
 
-type News = {
+interface News {
     id: number;
     time_ago: string;
     title: string;
@@ -14,17 +14,17 @@ type News = {
 }
 
 // 인터섹션 타입알리아스
-type NewsFeed = News & {
+interface NewsFeed extends News {
     comments_count: number;
     points: number;
     read?: boolean;
 }
 
-type NewsDetail = News & {
+interface NewsDetail extends News {
     comments: NewsComment[];
 }
 
-type NewsComment = News & {
+interface NewsComment extends News {
     comments: NewsComment[];
     level: number;
 }
