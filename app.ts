@@ -74,8 +74,10 @@ class NewsDetailApi {
     }
 }
 
-interface NewsFeedApi extends Api {};
-interface NewsDetailApi extends Api {};
+// Mixin 을 적용했으나 IDE 에서는 인지할 수 없음.
+// IDE 상의 오류를 제거하기 위하여 NewsFeedApi / NewsDetailApi 인터페이스를 정의
+interface NewsFeedApi extends Api {}
+interface NewsDetailApi extends Api {}
 
 applyApiMixins(NewsFeedApi, [Api]);
 applyApiMixins(NewsDetailApi, [Api]);
