@@ -9,24 +9,31 @@ export class Api {
         this.url = url;
     }
 
-    getRequest<AjaxResponse>(url: string): AjaxResponse {
-        const ajax = new XMLHttpRequest();
-        ajax.open('GET', url, false);
-        ajax.send();
+    getRequest<AjaxResponse>(): AjaxResponse {
+        this.ajax.open('GET', this.url, false);
+        this.ajax.send();
 
-        return JSON.parse(ajax.response);
+        return JSON.parse(this.ajax.response);
     }
 }
 
 export class NewsFeedApi extends Api{
+    constructor(url: string) {
+        super(url);
+    }
+
     getData(): NewsFeed[] {
-        return this.getRequest<NewsFeed[]>(this.url);
+        return this.getRequest<NewsFeed[]>();
     }
 }
 
 export class NewsDetailApi extends Api {
 
+    constructor(url: string) {
+        super(url);
+    }
+
     getData(): NewsDetail {
-        return this.getRequest<NewsDetail>(this.url);
+        return this.getRequest<NewsDetail>();
     }
 }
