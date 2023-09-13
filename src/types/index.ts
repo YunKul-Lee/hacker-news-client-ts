@@ -6,7 +6,7 @@ export interface NewsStore {
    getFeed: (position: number) => NewsFeed;
    setFeeds: (feeds: NewsFeed[]) => void;
    makeRead: (id: number) => void;
-   hasFeed: boolean;
+   hasFeeds: boolean;
    currentPage: number;
    numberOfFeed: number;
    prevPage: number;
