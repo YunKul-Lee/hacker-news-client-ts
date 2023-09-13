@@ -29,7 +29,7 @@ export default class Store implements NewsStore {
         return this.feeds.length;
     }
 
-    get hasFeed(): boolean {
+    get hasFeeds(): boolean {
         return this.feeds.length > 0;
     }
 
